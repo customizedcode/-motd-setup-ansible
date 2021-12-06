@@ -1,0 +1,5 @@
+---
+# defaults file for motd-setup-ansible
+motd_var1: "Customized.local"
+motd_var2: "Authorized Users Only"
+motd_var3: "*********************"

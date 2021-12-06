@@ -1,0 +1,38 @@
+---
+# tasks file for motd-setup-ansible
+
+  - name: remove cockpit message (Redhat)
+    file:
+      path: /etc/motd.d/cockpit
+      state: absent
+    when: ansible_os_family == "RedHat"
+
+  - name: disable update-motd.d (Ubuntu)
+    file:
+      path: /etc/update-motd.d/
+      state: touch
+      mode: ugo-x
+    when: ansible_os_family == "Debian"
+
+  - name: add motd message (RedHat)
+    template:
+      src: motd.j2
+      dest: /etc/motd.d/motd
+      owner: root
+      group: root
+      force: yes
+      mode: u=rw,g=r,o=r
+    when: ansible_os_family == "RedHat"
+
+
+  - name: add motd message (Debian)
+    template:
+      src: motd.j2
+      dest: /etc/motd
+      owner: root
+      group: root
+      force: yes
+      mode: u=rw,g=r,o=r
+    when: ansible_os_family == "Debian"
+
+
