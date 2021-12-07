@@ -1,7 +1,7 @@
 motd-setup-ansible
 =========
 
-Setup simple message of the day for both CentOS 8 and Ubuntu 18,20  
+Ansible role to setup simple message of the day for both CentOS 8 and Ubuntu 18,20  
 
 It does a few things:  
 1 - Disables the "MOTD commercials" from Ubuntu and the Cockpit notification from RedHat.  
